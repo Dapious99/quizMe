@@ -14,6 +14,11 @@ const questions = [
     ],
     correctAnswer: 1 //"Love for color purple",
   },
+  {
+    question: "What year is Berlin conference?",
+    options: ["1885", "1884", "Berlin", "Madrid"],
+    correctAnswer: 0 //"Paris",
+  },
 ];
 
 export default questions;
