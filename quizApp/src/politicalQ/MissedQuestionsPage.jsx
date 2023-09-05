@@ -8,14 +8,14 @@ function MissedQuestionsPage({ selectedAnswers }) {
       <ul>
         {questions.map((q, index) => (
           <li key={index}>
-            Question {index + 1}:{" "}
+            Question {index + 1}:
             {selectedAnswers[index] === q.correctAnswer ? (
               <span className="text-green-500">Correct</span>
             ) : (
               <>
-                Incorrect: Correct answer:{" "}
+                Incorrect: Correct answer:
                 <span className="text-green-500">
-                  {q.options[q.correctAnswer]}
+                  {q.options?.[q.correctAnswer]}
                 </span>
               </>
             )}
