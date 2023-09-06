@@ -3,7 +3,7 @@ import questions from "./questions";
 import MissedQuestionsPage from "./MissedQuestionsPage";
 
 function PoliticalQuiz() {
-  const [currentPage, setCurrentPage] = useState("quiz");
+  const [currentPage, setCurrentPage] = useState("quiz"); // "quiz", "score", or "missed-questions"
   const [page, setPage] = useState(0);
   const questionsPerPage = 10;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
