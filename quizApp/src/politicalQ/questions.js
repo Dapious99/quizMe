@@ -46,7 +46,7 @@ const questions = [
     options: ["Britain", "Germany", "Russia", "France"],
     correctAnswer: 0, //"Britain",
     id: 6,
-  }, //Isabela was the first colony in the New World founded by the Spanish Empire
+  },
   {
     question:
       "Isabela was the first colony in the New World founded by the ____ Empire",
