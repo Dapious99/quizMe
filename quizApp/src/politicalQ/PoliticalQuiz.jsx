@@ -7,16 +7,15 @@ function PoliticalQuiz() {
   const [page, setPage] = useState(0);
   const questionsPerPage = 10;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
+  const startIndex = page * questionsPerPage;
+  const endIndex = startIndex + questionsPerPage;
+  const currentQuestions = questions.slice(startIndex, endIndex);
   const [selectedAnswers, setSelectedAnswers] = useState(
-    new Array(totalPages).fill(new Array(questionsPerPage).fill(null))
+    new Array(questions.length).fill(null)
   );
   const [isAnsweredCorrectly, setIsAnsweredCorrectly] = useState(false);
   const [showScore, setShowScore] = useState(false);
-
-  const currentQuestions = questions.slice(
-    page * questionsPerPage,
-    (page + 1) * questionsPerPage
-  );
+  const [iscompleted, setIsCompleted] = useState(false);
 
   const handleNextPage = () => {
     setPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
@@ -26,38 +25,34 @@ function PoliticalQuiz() {
   const handlePrevPage = () => {
     setPage((prevPage) => Math.max(prevPage - 1, 0));
     setIsAnsweredCorrectly(false);
+    setCurrentPage("quiz");
   };
 
   const handleOptionClick = (questionIndex, optionIndex) => {
     const newSelectedAnswers = [...selectedAnswers];
-    newSelectedAnswers[page][questionIndex % questionsPerPage] = optionIndex; // Store selected answer for the current page
+    newSelectedAnswers[questionIndex] = optionIndex;
     setSelectedAnswers(newSelectedAnswers);
 
-    const isCorrect =
-      questions[questionIndex + page * questionsPerPage].correctAnswer ===
-      optionIndex;
+    const isCorrect = questions[questionIndex].correctAnswer === optionIndex;
     setIsAnsweredCorrectly(isCorrect);
   };
 
   const calculateScore = () => {
     let correctAnswers = 0;
-    selectedAnswers.forEach((pageAnswers, pageIndex) => {
-      pageAnswers.forEach((selectedOption, questionIndex) => {
-        const globalQuestionIndex =
-          questionIndex + pageIndex * questionsPerPage;
-        if (
-          selectedOption !== null &&
-          questions[globalQuestionIndex].correctAnswer === selectedOption
-        ) {
-          correctAnswers++;
-        }
-      });
+    selectedAnswers.forEach((selectedOption, index) => {
+      if (
+        selectedOption !== null &&
+        questions[index].correctAnswer === selectedOption
+      ) {
+        correctAnswers++;
+      }
     });
     return correctAnswers;
   };
 
   const handleSubmit = () => {
     setShowScore(true);
+    setIsCompleted(true);
   };
 
   const handleViewMissedQuestions = () => {
@@ -68,9 +63,9 @@ function PoliticalQuiz() {
     <div className="PoliticalQuiz-container">
       {currentPage === "quiz" && (
         <div>
-          {currentQuestions.map((q, questionIndex) => (
+          {currentQuestions.map((q) => (
             <div
-              key={questionIndex}
+              key={q.id}
               className={`question border p-4 rounded-lg mb-4 ${
                 isAnsweredCorrectly ? "" : ""
               }`}
@@ -81,21 +76,13 @@ function PoliticalQuiz() {
                   <li
                     key={optionIndex}
                     className={`cursor-pointer p-2  transition-colors ${
-                      selectedAnswers[page][
-                        questionIndex % questionsPerPage
-                      ] === optionIndex
-                        ? questions[questionIndex + page * questionsPerPage]
-                            .correctAnswer === optionIndex
+                      selectedAnswers[q.id - 1] === optionIndex
+                        ? questions[q.id - 1].correctAnswer === optionIndex
                           ? "bg-green-500 text-white"
                           : "bg-red-500 text-white"
                         : "bg-gray-200"
                     }`}
-                    onClick={() =>
-                      handleOptionClick(
-                        questionIndex + page * questionsPerPage,
-                        optionIndex
-                      )
-                    }
+                    onClick={() => handleOptionClick(q.id - 1, optionIndex)}
                   >
                     {option}
                   </li>
@@ -104,14 +91,13 @@ function PoliticalQuiz() {
             </div>
           ))}
           <div className="mt-4">
-            {page > 0 && (
-              <button
-                onClick={handlePrevPage}
-                className="mr-2 px-4 py-2 bg-blue-500 text-white rounded"
-              >
-                Previous Page
-              </button>
-            )}
+            <button
+              onClick={handlePrevPage}
+              disabled={page === 0}
+              className="mr-2 px-4 py-2 bg-blue-500 text-white rounded"
+            >
+              Previous Page
+            </button>
             {page === totalPages - 1 ? (
               <button
                 onClick={handleSubmit}
@@ -122,38 +108,48 @@ function PoliticalQuiz() {
             ) : (
               <button
                 onClick={handleNextPage}
+                disabled={page === totalPages - 1}
                 className="px-4 py-2 bg-blue-500 text-white rounded"
               >
                 Next Page
               </button>
             )}
-            {showScore && (
-              <button
-                onClick={handleViewMissedQuestions}
-                className="ml-2 px-4 py-2 bg-red-500 text-white rounded"
-              >
-                View Missed Questions
-              </button>
+            {iscompleted && (
+              <div className="fixed inset-0 flex items-center justify-center bg-gray-950 bg-opacity-50">
+                <div className="bg-blue-300 p-8 rounded shadow-lg">
+                  {showScore && (
+                    <div className="mt-4">
+                      <p className="text-3xl font-semibold text-center">
+                        {calculateScore()} / {questions.length}
+                      </p>
+                      <p>
+                        {calculateScore() === questions.length ? (
+                          <span className="bg-gradient-to-r from-[#C25D41] via-orange-500 to-[#00C2FF] inline-block text-transparent bg-clip-text">
+                            You answered all questions correctly!
+                          </span>
+                        ) : (
+                          <span>Keep practicing to improve your score.</span>
+                        )}
+                      </p>
+                    </div>
+                  )}
+                  {showScore && (
+                    <button
+                      onClick={handleViewMissedQuestions}
+                      className="ml-2 px-4 py-2 bg-red-500 text-white rounded"
+                    >
+                      View Missed Questions
+                    </button>
+                  )}
+                </div>
+              </div>
             )}
           </div>
         </div>
       )}
 
-      {currentPage === "score" && (
-        <div className="mt-4">
-          <p className="text-lg font-semibold">
-            {calculateScore()} / {questions.length}
-          </p>
-          <p>
-            {calculateScore() === questions.length
-              ? "You answered all questions correctly!"
-              : "Keep practicing to improve your score."}
-          </p>
-        </div>
-      )}
-
       {currentPage === "missed-questions" && (
-        <MissedQuestionsPage selectedAnswers={selectedAnswers[page]} />
+        <MissedQuestionsPage selectedAnswers={selectedAnswers} />
       )}
     </div>
   );

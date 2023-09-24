@@ -1,63 +1,26 @@
 const questions = [
-  {
-    question: "What is the capital of France?",
-    options: ["Paris", "London", "Berlin", "Madrid"],
-    correctAnswer: 0, //"Paris",
-  },
+  //    new Array(totalPages).fill(new Array(questionsPerPage).fill(null))
   {
     question: "_____ was formely referred to as NyasaLand.",
     options: ["Congo", "Seychelles", "Madagascar", "Malawi"],
     correctAnswer: 3, //"Malawi",
+    id: 1,
   },
   {
     question: "Nigeria gain her independence on October 1st ____?",
     options: ["1914", "1960", "1956", "1963"],
     correctAnswer: 1, //"1960",
+    id: 2,
   },
   {
-    question: "____ and ____ are countries in West Africa",
-    options: [
-      "Zimbabwe and Ghana",
-      "Sudan and Uganda",
-      "Sudan and South-Sudan",
-      "Chad and Guinea-Bissau",
-    ],
-    correctAnswer: 3, //"Chad and Guinea-Bissau",
-  },
-  {
-    question: "All these countries are North Africa countries except _____",
-    options: ["Algeria", "Mali", "Egpyt", "Morrocco"],
-    correctAnswer: 1, //"Mali",
-  },
-  {
-    question: "What is the capital of France?",
-    options: ["Paris", "London", "Berlin", "Madrid"],
-    correctAnswer: 0, //"Paris",
-  },
-  {
-    question: "What is the capital of Sierra-Leone?",
-    options: ["Timbuktu", "London", "Freetown", "Lagos"],
-    correctAnswer: 2, //"Freetown",
-  },
-  {
-    question: "What does Porphyrophile stands for?",
-    options: [
-      "Confidence",
-      "Love for color purple",
-      "Fear of color purple",
-      "Love for colors",
-    ],
-    correctAnswer: 1, //"Love for color purple",
-  },
-  {},
-  {
-    question: "What year is the Berlin conference?",
-    options: ["1885", "1884", "1997", "1202"],
+    question: "Which year is the Berlin conference?",
+    options: ["1885", "1884", "1997", "1202", "2024"],
     correctAnswer: 0, //"1885",
+    id: 3,
   },
   {
     question:
-      "The partioning of Africa and sharing it resources among European powers was done at ...",
+      "The partioning of Africa and sharing of her resources among European powers was done at ...",
     options: [
       "UN Conference",
       "International Conference",
@@ -65,6 +28,7 @@ const questions = [
       "WWII",
     ],
     correctAnswer: 2, //"Berlin Conference",
+    id: 4,
   },
   {
     question: "The United Nations(UN) is preceded by which body?",
@@ -75,11 +39,20 @@ const questions = [
       "League of Nations",
     ],
     correctAnswer: 3, //"League of Nations",
+    id: 5,
   },
   {
     question: "The commonwealth countries are colonized by?",
     options: ["Britain", "Germany", "Russia", "France"],
     correctAnswer: 0, //"Britain",
+    id: 6,
+  }, //Isabela was the first colony in the New World founded by the Spanish Empire
+  {
+    question:
+      "Isabela was the first colony in the New World founded by the ____ Empire",
+    options: ["British", "German", "Russia", "French", "Spanish"],
+    correctAnswer: 4, //"Spanish",
+    id: 7,
   },
 ];
 
