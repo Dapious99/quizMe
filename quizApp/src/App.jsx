@@ -1,12 +1,13 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PoliticalQuiz from "./politicalQ/PoliticalQuiz";
 
 function App() {
   return (
-    <>
-      <PoliticalQuiz />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/political-quiz" element={<PoliticalQuiz />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

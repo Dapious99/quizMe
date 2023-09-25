@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import questions from "./questions";
-import MissedQuestionsPage from "./MissedQuestionsPage";
+import questions from "./components/questions";
+import MissedQuestionsPage from "./components/MissedQuestionsPage";
 
 function PoliticalQuiz() {
   const [currentPage, setCurrentPage] = useState("quiz"); // "quiz", "score", or "missed-questions"
   const [page, setPage] = useState(0);
-  const questionsPerPage = 10;
+  const questionsPerPage = 8;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
   const startIndex = page * questionsPerPage;
   const endIndex = startIndex + questionsPerPage;
@@ -124,7 +124,7 @@ function PoliticalQuiz() {
                       </p>
                       <p>
                         {calculateScore() === questions.length ? (
-                          <span className="bg-gradient-to-r from-[#C25D41] via-orange-500 to-[#00C2FF] inline-block text-transparent bg-clip-text">
+                          <span className="">
                             You answered all questions correctly!
                           </span>
                         ) : (
