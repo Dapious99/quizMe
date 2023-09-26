@@ -48,7 +48,7 @@ const Navbar = () => {
         <ul
           className={
             toggle
-              ? "h-screen w-full pt-[6rem] ease-out px-8 bg-blue-200 text-black flex flex-col gap-[2rem]"
+              ? "h-screen w-full pt-[6rem] ease-out px-8 text-black flex flex-col gap-[2rem]"
               : "flex gap-[4rem] py-3 md:hidden sm:hidden"
           }
         >
@@ -90,7 +90,7 @@ const Navbar = () => {
             <ul
               className={
                 historyDropdownOpen
-                  ? "ml-2 absolute p-2"
+                  ? "ml-2 absolute sm:ml-14 p-2"
                   : "ml-2 absolute hidden p-2"
               }
             >
@@ -100,10 +100,6 @@ const Navbar = () => {
 
               <Link to="" className="block py-2" onClick={clickedItem}>
                 Nigeria
-              </Link>
-
-              <Link to="" className="block py-2" onClick={clickedItem}>
-                Politics
               </Link>
             </ul>
           </li>
