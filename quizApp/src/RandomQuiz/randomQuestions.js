@@ -154,8 +154,19 @@ const randomQuestions = [
       "5th July 1975",
       "28th November 1980",
     ],
-    correctAnswer: 2, //"5th July 1975",
-    id: 21,
+    correctAnswer: 2, //"5th July 1975", island of Hispaniola (the island that makes up modern-day Haiti and the Dominican Republic)
+    id: 22,
+  },
+  {
+    question: "The Hispaniola Island makes up modern-day ______ and _______.",
+    options: [
+      "Haiti and Dominican Republic",
+      "Peru and Chile",
+      "Bolivia and Argentina",
+      "Costa Rica and Gautemala",
+    ],
+    correctAnswer: 0, //"Haiti and Dominican Republic"
+    id: 23,
   },
 ];
 

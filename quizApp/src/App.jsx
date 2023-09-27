@@ -1,9 +1,9 @@
-import PoliticalQuiz from "./politicalQ/PoliticalQuiz";
+import RandomQuiz from "./RandomQuiz";
 
 function App() {
   return (
     <>
-      <PoliticalQuiz />
+      <RandomQuiz />
     </>
   );
 }
