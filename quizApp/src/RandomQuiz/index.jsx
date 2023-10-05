@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import randomQuestions from "./randomQuestions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import RandomMissedQuestion from "./components/RandomMissedQuestion";
+import RandomMissedQuestion from "./components/RandomMissedQuestion";
 
 function RandomQuiz() {
   const [currentPage, setCurrentPage] = useState("quiz"); // "quiz", "score", or "missed-questions"

@@ -1,15 +1,20 @@
 import React from "react";
 import randomQuestions from "../../randomQuestions";
 
-function index({ selectedAnswers }) {
+function Index({ selectedAnswers }) {
+  // Filter questions based on incorrect answers
+  const incorrectQuestions = randomQuestions.filter(
+    (q, id) => selectedAnswers[id] !== q.correctAnswer
+  );
+
   return (
     <div className="missed-questions-container">
       <h2>Missed Questions and Correct Answers</h2>
       <ul>
-        {randomQuestions.map((q, id) => (
+        {incorrectQuestions.map((q, id) => (
           <li key={id}>
             Question {id + 1}:
-            {selectedAnswers[index] === q.correctAnswer ? (
+            {selectedAnswers[id] === q.correctAnswer ? (
               <span className="text-green-500">Correct</span>
             ) : (
               <>
@@ -26,4 +31,4 @@ function index({ selectedAnswers }) {
   );
 }
 
-export default index;
+export default Index;
