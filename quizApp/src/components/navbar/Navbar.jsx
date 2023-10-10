@@ -74,11 +74,11 @@ const Navbar = () => {
                 Politics
               </Link>
 
-              <Link to="/programming-quiz" className="block py-2">
+              <Link to="/africa-quiz" className="block py-2">
                 Africa
               </Link>
 
-              <Link to="/random-questions" className="block py-2">
+              <Link to="/random-quiz" className="block py-2">
                 Random
               </Link>
             </ul>
