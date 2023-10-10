@@ -64,7 +64,7 @@ const randomQuestions = [
   {
     question: "The cold war was after _____.",
     options: ["American Revolution", "WWI", "Chinese Revolution", "WWII"],
-    correctAnswer: 1, //"WWI",
+    correctAnswer: 3, //"WWII",
     id: 10,
   },
   {
@@ -154,7 +154,7 @@ const randomQuestions = [
       "5th July 1975",
       "28th November 1980",
     ],
-    correctAnswer: 2, //"5th July 1975", island of Hispaniola (the island that makes up modern-day Haiti and the Dominican Republic)
+    correctAnswer: 2, //"5th July 1975",
     id: 22,
   },
   {

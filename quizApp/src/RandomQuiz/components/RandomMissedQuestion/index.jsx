@@ -4,21 +4,23 @@ import randomQuestions from "../../randomQuestions";
 function Index({ selectedAnswers }) {
   // Filter questions based on incorrect answers
   const incorrectQuestions = randomQuestions.filter(
-    (q, id) => selectedAnswers[id] !== q.correctAnswer
+    (q) => selectedAnswers[q.id - 1] !== q.correctAnswer
   );
 
   return (
-    <div className="missed-questions-container">
-      <h2>Missed Questions and Correct Answers</h2>
+    <div className="missed-questions-container flex flex-col justify-center items-center h-screen">
+      <h2 className="text-5xl bg-gradient-to-r from-red-500 via-orange-500 to-green-500 inline-block text-transparent bg-clip-text">
+        Missed Questions and Correct Answers
+      </h2>
       <ul>
-        {incorrectQuestions.map((q, id) => (
-          <li key={id}>
-            Question {id + 1}:
-            {selectedAnswers[id] === q.correctAnswer ? (
-              <span className="text-green-500">Correct</span>
-            ) : (
+        {incorrectQuestions.map((q) => (
+          <li key={q.id}>
+            {/* Display the question number based on id */}
+            {q.id}.{" "}
+            {selectedAnswers[q.id - 1] !== q.correctAnswer && (
+              // Don't display "Correct" for correctly answered questions
               <>
-                Incorrect: Correct answer:
+                Incorrect: Correct answer:{" "}
                 <span className="text-green-500">
                   {q.options?.[q.correctAnswer]}
                 </span>

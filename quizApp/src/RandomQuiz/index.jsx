@@ -69,9 +69,11 @@ function RandomQuiz() {
     <div className="RandomQuiz-container">
       {currentPage === "quiz" && (
         <div>
-          {currentQuestions.map((q) => (
+          {currentQuestions.map((q, index) => (
             <div key={q.id} className="border p-4 rounded-lg mb-4">
-              <h3 className="text-xl font-semibold mb-2">{q.question}</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                {index + 1}. {q.question}
+              </h3>
               <ul>
                 {q.options?.map((option, optionIndex) => (
                   <li
