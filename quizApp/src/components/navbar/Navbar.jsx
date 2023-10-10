@@ -75,7 +75,7 @@ const Navbar = () => {
               </Link>
 
               <Link to="/programming-quiz" className="block py-2">
-                Programming
+                Africa
               </Link>
 
               <Link to="/random-questions" className="block py-2">
