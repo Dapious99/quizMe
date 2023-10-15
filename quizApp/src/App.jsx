@@ -1,3 +1,14 @@
+ feat/home
+import Home from "./homepage/Home"
+
+function App() {
+
+  return (
+    <div>
+      <Home />
+    </div>
+  )
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PoliticalQuiz from "./politicalQ/PoliticalQuiz";
 
@@ -9,6 +20,7 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
+ feat/dev
 }
 
 export default App;
