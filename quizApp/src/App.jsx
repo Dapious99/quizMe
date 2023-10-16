@@ -1,14 +1,4 @@
- feat/home
-import Home from "./homepage/Home"
-
-function App() {
-
-  return (
-    <div>
-      <Home />
-    </div>
-  )
-
+import Home from "./homepage/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PoliticalQuiz from "./politicalQ/PoliticalQuiz";
 
@@ -17,10 +7,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/political-quiz" element={<PoliticalQuiz />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
- feat/dev
+  feat / dev;
 }
 
 export default App;
