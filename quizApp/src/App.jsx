@@ -1,6 +1,6 @@
 import Home from "./homepage/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PoliticalQuiz from "./politicalQ/PoliticalQuiz";
+import PoliticalQuiz from "./politicalQ";
 import RandomQuiz from "./RandomQuiz";
 
 function App() {
