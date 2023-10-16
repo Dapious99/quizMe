@@ -1,6 +1,7 @@
 import Home from "./homepage/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PoliticalQuiz from "./politicalQ/PoliticalQuiz";
+import RandomQuiz from "./RandomQuiz";
 
 function App() {
   return (
@@ -8,10 +9,10 @@ function App() {
       <Routes>
         <Route path="/political-quiz" element={<PoliticalQuiz />} />
         <Route path="/" element={<Home />} />
+        <Route path="/random-quiz" element={<RandomQuiz />} />
       </Routes>
     </BrowserRouter>
   );
-  feat / dev;
 }
 
 export default App;
