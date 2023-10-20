@@ -1,49 +1,43 @@
-const randomQuestions = [
+const africaQuestions = [
   {
-    question: "What is the capital of France?",
-    options: ["Paris", "London", "Berlin", "Madrid"],
-    correctAnswer: 0, //"Paris",
+    question: "What is the capital of Togo?",
+    options: ["Accra", "Kinshasha", "Lome", "None of the above"],
+    correctAnswer: 2, //"Lome",
     id: 1,
   },
   {
-    question: "What does Porphyrophile stands for?",
-    options: [
-      "Confidence",
-      "Love for color purple",
-      "Fear of color purple",
-      "Love for colors",
-    ],
-    correctAnswer: 1, //"Love for color purple",
+    question: "What is the capital of Ivory Coast?",
+    options: ["Abidjan", "Abuja", "Freetown", "Pretoria"],
+    correctAnswer: 0, //"Abidjan",
     id: 2,
   },
   {
-    question: "Which country defeated the Italians in the 'Adwa war'?",
-    options: ["Belgium", "Malta", "Ethiopia", "Egpyt"],
-    correctAnswer: 2, //"Ethiopia",
+    question: "What is the capital of Nigeria before it was moved to Abuja?",
+    options: ["Onitsha", "Calabar", "Lagos", "Zaria"],
+    correctAnswer: 2, //"Lagos",
     id: 3,
   },
   {
-    question: "The Kikuyu people can be found in which country?",
-    options: ["Madagascar", "Uganda", "Kenya", "Chad"],
-    correctAnswer: 2, //"Kenya",
+    question: "Kumasi is a city in _____?",
+    options: ["Madagascar", "Chad", "Angola", "None of the above"],
+    correctAnswer: 3, //"None of the above",
     id: 4,
   },
   {
-    question:
-      "The Okun subgroup refers to group of Yoruba people that can be found in ______ state.",
-    options: ["Edo", "Kwara", "Benue", "Kogi"],
-    correctAnswer: 3, //"Kogi",
+    question: "Before the discovery of crude-oil, Nigeria exports ______.",
+    options: ["Groundnut", "Cocoa", "Cotton", "All of the above"],
+    correctAnswer: 3, //"All of the above",
     id: 5,
   },
   {
     question:
-      "The monarchical system the Yoruba's practices is a constitutional monarchy.",
-    options: ["True", "False"],
-    correctAnswer: 0, //"True",
+      "The colonial masters appointed warrant chief for administrative purposes in which part of pre-colonial Nigeria?",
+    options: ["East", "West", "North", "All of the above"],
+    correctAnswer: 0, //"East",
     id: 6,
   },
   {
-    question: "______ is the last country to gain independence in Africa.",
+    question: "",
     options: ["Sao Tome and Principe", "Djibouti", "South-Sudan", "Angola"],
     correctAnswer: 2, //"South Sudan",
     id: 7,
@@ -170,4 +164,4 @@ const randomQuestions = [
   },
 ];
 
-export default randomQuestions;
+export default africaQuestions;

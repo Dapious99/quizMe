@@ -2,6 +2,7 @@ import Home from "./homepage/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PoliticalQuiz from "./politicalQ";
 import RandomQuiz from "./RandomQuiz";
+import Page from "./kobosky/Page";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Route path="/political-quiz" element={<PoliticalQuiz />} />
         <Route path="/" element={<Home />} />
         <Route path="/random-quiz" element={<RandomQuiz />} />
+        <Route path="/kobosky" element={<Page />} />
       </Routes>
     </BrowserRouter>
   );
