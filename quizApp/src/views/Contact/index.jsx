@@ -13,7 +13,7 @@ const index = () => {
   };
 
   return (
-    <div className="bg-gray-200 h-screen px-12 md:px-5 sm:px-3">
+    <div className="bg-gray-200 h-screen px-10 md:px-5 sm:px-3">
       <p className="text-4xl md:text-2xl sm:text-xl">
         For improvement, contribution and sponsorship. Contact:
       </p>
