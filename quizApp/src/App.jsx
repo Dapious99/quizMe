@@ -1,17 +1,11 @@
-import Home from "./homepage/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PoliticalQuiz from "./politicalQ";
-import RandomQuiz from "./RandomQuiz";
-import Page from "./kobosky/Page";
+import AfricaQuiz from "./africaQuiz/AfricaQuiz";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/political-quiz" element={<PoliticalQuiz />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/random-quiz" element={<RandomQuiz />} />
-        <Route path="/kobosky" element={<Page />} />
+        <Route path="/africa-quiz" element={<AfricaQuiz />} />
       </Routes>
     </BrowserRouter>
   );

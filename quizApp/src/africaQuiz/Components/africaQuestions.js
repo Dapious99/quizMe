@@ -7,20 +7,20 @@ const africaQuestions = [
   },
   {
     question: "What is the capital of Ivory Coast?",
-    options: ["Abidjan", "Abuja", "Freetown", "Pretoria"],
-    correctAnswer: 0, //"Abidjan",
+    options: ["Pretoria", "Abuja", "Freetown", "None of the above"],
+    correctAnswer: 3, //"None of the above",
     id: 2,
   },
   {
     question: "What is the capital of Nigeria before it was moved to Abuja?",
-    options: ["Onitsha", "Calabar", "Lagos", "Zaria"],
-    correctAnswer: 2, //"Lagos",
+    options: ["Onitsha", "Calabar", "Zaria", "None of the above"],
+    correctAnswer: 3, //"None of the above",
     id: 3,
   },
   {
-    question: "Kumasi is a city in _____?",
-    options: ["Madagascar", "Chad", "Angola", "None of the above"],
-    correctAnswer: 3, //"None of the above",
+    question: "Congo has one of the largest deposit of _____ in the world?",
+    options: ["Cocoa", "Ivory", "Crude-oil", "Uranium"],
+    correctAnswer: 3, //"Uranium",
     id: 4,
   },
   {
@@ -37,9 +37,9 @@ const africaQuestions = [
     id: 6,
   },
   {
-    question: "",
-    options: ["Sao Tome and Principe", "Djibouti", "South-Sudan", "Angola"],
-    correctAnswer: 2, //"South Sudan",
+    question: "Samuel Doe was president of ______",
+    options: ["Mali", "Djibouti", "Liberia", "Angola"],
+    correctAnswer: 2, //"Liberia",
     id: 7,
   },
   {
@@ -50,45 +50,41 @@ const africaQuestions = [
     id: 8,
   },
   {
-    question: "World War I started _____ and ended ______.",
-    options: ["1914, 1918", "1939, 1945", "1915,1920", "1814,1818"],
-    correctAnswer: 0, //"1914,1918",
+    question:
+      "'How Europe underdeveloped africa' is a book explaining the ways in which the Europeans undermines Africa development. It was written by ______",
+    options: ["O. Cardoso", "W. Rodney", "S. Amin", "WW Rostow"],
+    correctAnswer: 1, //"W. Rodney",
     id: 9,
   },
   {
-    question: "The cold war was after _____.",
-    options: ["American Revolution", "WWI", "Chinese Revolution", "WWII"],
-    correctAnswer: 3, //"WWII",
+    question: "Kwame Nkrumah is the first elected president of Ghana.",
+    options: ["True", "False"],
+    correctAnswer: 0, //"True",
     id: 10,
   },
   {
-    question: "Bolivia can be found in _____.",
-    options: ["Asia", "Africa", "S/America", "N/America"],
-    correctAnswer: 2, //"S/America",
+    question: "Krahn is a small ethnic group in _____.",
+    options: ["Nigeria", "Uganda", "Liberia", "Rwanda"],
+    correctAnswer: 2, //"Liberia",
     id: 11,
   },
   {
     question:
-      "Nogales Senora and Nogales Arizona can be found in ______ and ______.",
-    options: ["Chile,Brazil", "Canada,US", "Columbia,US", "Mexico, US"],
-    correctAnswer: 3, //"Mexico, US",
+      "Which of the following early African leaders uphold the idea of Ujaamah?",
+    options: ["T.Sankhara", "N.Azikiwe", "F.Fanon", "J.Nyerere"],
+    correctAnswer: 3, //"J.Nyerere",
     id: 12,
   },
   {
-    question: "The Ottoman empire is peculiar to present day ______.",
-    options: ["Algeria", "Egpyt", "Turkey", "Syria"],
-    correctAnswer: 2, //"Turkey",
+    question: "Tanganyika and Zanzibar is present day ______.",
+    options: ["Eritrea", "Seychelles", "Tunisia", "Tanzania"],
+    correctAnswer: 3, //"Tanzania",
     id: 13,
   },
   {
-    question: "____ and ____ are countries in West Africa",
-    options: [
-      "Zimbabwe and Ghana",
-      "Sudan and Uganda",
-      "Sudan and South-Sudan",
-      "Liberia and Guinea-Bissau",
-    ],
-    correctAnswer: 3, //"Liberia and Guinea-Bissau",
+    question: "_____ is referred to as Gaint of Africa",
+    options: ["Ethiopia", "Egypt", "South-Africa", "Nigeria"],
+    correctAnswer: 3, //"Nigeria",
     id: 14,
   },
   {
@@ -99,37 +95,33 @@ const africaQuestions = [
   },
   {
     question: "____ is the capital of Sierra-Leone?",
-    options: ["Timbuktu", "London", "Freetown", "Lagos"],
-    correctAnswer: 2, //"Freetown",
+    options: ["Timbuktu", "London", "Mogadishu", "Freetown"],
+    correctAnswer: 3, //"Freetown",
     id: 16,
   },
   {
-    question: "Jerusalem is situated where?",
-    options: ["Jordan", "Palestine", "Isreal", "US"],
-    correctAnswer: 2, //"Isreal",
+    question: "AU was preceded by OAU",
+    options: ["True", "False"],
+    correctAnswer: 0, //"True",
     id: 17,
   },
   {
-    question: "OPEC stands for _______",
-    options: [
-      "Organization of People Exporting Charcoal",
-      "Organization of Petroleum Exporting Country",
-      "Oraganization of People Exchanging Cash",
-      "Operation Everybody must Co-exist",
-    ],
-    correctAnswer: 1, //"Organization of Petroleum Exporting Country",
+    question: "ECOMOG is the security arm of ______.",
+    options: ["ECOWAS", "UN", "OPEC", "None of the above"],
+    correctAnswer: 0, //"ECOWAS",
     id: 18,
   },
   {
-    question: "The Red Indians are natives of present day ______.",
-    options: ["Canada", "Britain", "India", "US"],
-    correctAnswer: 3, //"US",
+    question:
+      "______ as a body is responsible for all footballing activities in Africa.",
+    options: ["FIFA", "NFF", "CAF", "None of the above"],
+    correctAnswer: 2, //"CAF",
     id: 19,
   },
   {
-    question: "Söğüt can be found in ______",
-    options: ["Jordan", "Syria", "Turkey", "US"],
-    correctAnswer: 2, //"Turkey",
+    question: "Onitsha can be found in ______",
+    options: ["Liberia", "Tunisia", "Cameroon", "Nigeria"],
+    correctAnswer: 3, //"Nigeria",
     id: 20,
   },
   {
@@ -152,15 +144,70 @@ const africaQuestions = [
     id: 22,
   },
   {
-    question: "The Hispaniola Island makes up modern-day ______ and _______.",
-    options: [
-      "Haiti and Dominican Republic",
-      "Peru and Chile",
-      "Bolivia and Argentina",
-      "Costa Rica and Gautemala",
-    ],
-    correctAnswer: 0, //"Haiti and Dominican Republic"
+    question: "The Nigeria civil was from _____ to _____.",
+    options: ["1967-1970", "1968-1970", "1970-1973", "1965-1970"],
+    correctAnswer: 0, //"1967-1970"
     id: 23,
+  },
+  {
+    question: "Y. Musevini is the president of ______.",
+    options: ["Uganda", "Eritrea", "Rwanda", "Burundi"],
+    correctAnswer: 0, //"Uganda"
+    id: 24,
+  },
+  {
+    question: "Mau-Mau war took place in _____ during the colonial era.",
+    options: ["Tunisia", "Madagascar", "Nigeria", "Kenya"],
+    correctAnswer: 3, //"Kenya"
+    id: 25,
+  },
+  {
+    question: "Burkina-Faso is formerly referred to as _____.",
+    options: ["Nyasaland", "Gold-Coast", "Upper-Volta", "South-Rhodesia"],
+    correctAnswer: 0, //"Upper-volta"
+    id: 26,
+  },
+  {
+    question: "Rhodesia is present day ______ and ______.",
+    options: [
+      "Zambia and Zimbabwe",
+      "Burkina-Faso and Comoros",
+      "Madagascar and Eritrea",
+      "Malawi and Zimbabwe",
+    ],
+    correctAnswer: 0, //"Zambia and Zimbabwe"
+    id: 27,
+  },
+  {
+    question:
+      "F.Fanon was a french soldier that came back to ______ to grow independent movement.",
+    options: ["Uganda", "Algeria", "Tunisia", "Morocco"],
+    correctAnswer: 1, //"Algeria"
+    id: 28,
+  },
+  {
+    question:
+      "Almost all independent African state are still under obligations to their colonial masters through _______.",
+    options: [
+      "Modernization",
+      "Civilization",
+      "Neo-colonialism",
+      "Imperialism",
+    ],
+    correctAnswer: 2, //"Neo-colonialism"
+    id: 29,
+  },
+  {
+    question: "Julius Nyerere is the first president of _____.",
+    options: ["Tunisia", "Tanzania", "Malawi", "Eritrea"],
+    correctAnswer: 1, //"Tanzania"
+    id: 30,
+  },
+  {
+    question: "Dar-es-salam is the capital of ______.",
+    options: ["Libya", "Morocco", "Tanzania", "Egypt"],
+    correctAnswer: 2, //"Tanzania"
+    id: 31,
   },
 ];
 

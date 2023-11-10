@@ -69,10 +69,10 @@ function AfricaQuiz() {
     <div className="AfricaQuiz-container">
       {currentPage === "quiz" && (
         <div>
-          {currentQuestions.map((q, index) => (
+          {currentQuestions.map((q) => (
             <div key={q.id} className="border p-4 rounded-lg mb-4">
-              <h3 className="text-xl font-semibold mb-2">
-                {index + 1}. {q.question}
+              <h3 className="text-xl font-semibold sm:font-normal md:font-medium mb-2">
+                {q.question}
               </h3>
               <ul>
                 {q.options?.map((option, optionIndex) => (
