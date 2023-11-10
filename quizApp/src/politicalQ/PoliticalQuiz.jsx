@@ -13,18 +13,24 @@ function PoliticalQuiz() {
   const [selectedAnswers, setSelectedAnswers] = useState(
     new Array(questions.length).fill(null)
   );
-  const [isAnsweredCorrectly, setIsAnsweredCorrectly] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const [iscompleted, setIsCompleted] = useState(false);
 
   const handleNextPage = () => {
-    setPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
-    setIsAnsweredCorrectly(false);
+    if (
+      !currentQuestions.some(
+        (_, index) => selectedAnswers[startIndex + index] === null
+      )
+    ) {
+      setPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
+      setCurrentPage("quiz");
+    } else {
+      alert("Please answer all questions before proceeding to the next page.");
+    }
   };
 
   const handlePrevPage = () => {
     setPage((prevPage) => Math.max(prevPage - 1, 0));
-    setIsAnsweredCorrectly(false);
     setCurrentPage("quiz");
   };
 
@@ -32,9 +38,6 @@ function PoliticalQuiz() {
     const newSelectedAnswers = [...selectedAnswers];
     newSelectedAnswers[questionIndex] = optionIndex;
     setSelectedAnswers(newSelectedAnswers);
-
-    const isCorrect = questions[questionIndex].correctAnswer === optionIndex;
-    setIsAnsweredCorrectly(isCorrect);
   };
 
   const calculateScore = () => {
@@ -64,22 +67,17 @@ function PoliticalQuiz() {
       {currentPage === "quiz" && (
         <div>
           {currentQuestions.map((q) => (
-            <div
-              key={q.id}
-              className={`question border p-4 rounded-lg mb-4 ${
-                isAnsweredCorrectly ? "" : ""
-              }`}
-            >
-              <h3 className="text-xl font-semibold mb-2">{q.question}</h3>
+            <div key={q.id} className={`question border p-4 rounded-lg mb-4 $`}>
+              <h3 className="text-xl font-semibold sm:font-normal md:font-medium mb-2">
+                {q.question}
+              </h3>
               <ul>
                 {q.options?.map((option, optionIndex) => (
                   <li
                     key={optionIndex}
                     className={`cursor-pointer p-2  transition-colors ${
                       selectedAnswers[q.id - 1] === optionIndex
-                        ? questions[q.id - 1].correctAnswer === optionIndex
-                          ? "bg-green-500 text-white"
-                          : "bg-red-500 text-white"
+                        ? "bg-green-500 text-white"
                         : "bg-gray-200"
                     }`}
                     onClick={() => handleOptionClick(q.id - 1, optionIndex)}

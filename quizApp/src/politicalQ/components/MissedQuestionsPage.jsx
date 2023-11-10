@@ -4,7 +4,7 @@ import questions from "./questions";
 function MissedQuestionsPage({ selectedAnswers }) {
   return (
     <div className="">
-      <h1 className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 inline-block text-transparent bg-clip-text">
+      <h1 className="text-5xl md:text-3xl sm:text-2xl bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 inline-block text-transparent bg-clip-text">
         Missed Questions and Correct Answers
       </h1>
       <ul>
@@ -12,14 +12,15 @@ function MissedQuestionsPage({ selectedAnswers }) {
           <li key={id}>
             Question {id + 1}:
             {selectedAnswers[id] === q.correctAnswer ? (
-              <span className="text-green-500 text-4xl">
+              <span className="text-green-500 text-2xl sm:text-lg md:text-xl">
                 You got the question right.
               </span>
             ) : (
               <>
-                <span className="text-red-500 text-4xl">Incorrect.</span>
-                <span className="text-green-500 text-4xl">
-                  {q.options?.[q.correctAnswer]} is the correct answer.
+                Incorrect:{" "}
+                <span className="text-green-400">Correct answer</span>:{" "}
+                <span className="text-green-500">
+                  {q.options?.[q.correctAnswer]}
                 </span>
               </>
             )}
