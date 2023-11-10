@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import randomQuestions from "./randomQuestions";
+import RandomQuestions from "./components/RandomQuestions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RandomMissedQuestion from "./components/RandomMissedQuestion";
@@ -8,12 +8,12 @@ function RandomQuiz() {
   const [currentPage, setCurrentPage] = useState("quiz"); // "quiz", "score", or "missed-questions"
   const [page, setPage] = useState(0);
   const questionsPerPage = 8;
-  const totalPages = Math.ceil(randomQuestions.length / questionsPerPage);
+  const totalPages = Math.ceil(RandomQuestions.length / questionsPerPage);
   const startIndex = page * questionsPerPage;
   const endIndex = startIndex + questionsPerPage;
-  const currentQuestions = randomQuestions.slice(startIndex, endIndex);
+  const currentQuestions = RandomQuestions.slice(startIndex, endIndex);
   const [selectedAnswers, setSelectedAnswers] = useState(
-    new Array(randomQuestions.length).fill(null)
+    new Array(RandomQuestions.length).fill(null)
   );
   const [showScore, setShowScore] = useState(false);
   const [iscompleted, setIsCompleted] = useState(false);
@@ -47,7 +47,7 @@ function RandomQuiz() {
     selectedAnswers.forEach((selectedOption, index) => {
       if (
         selectedOption !== null &&
-        randomQuestions[index].correctAnswer === selectedOption
+        RandomQuestions[index].correctAnswer === selectedOption
       ) {
         correctAnswers++;
       }
@@ -66,14 +66,12 @@ function RandomQuiz() {
   };
 
   return (
-    <div className="RandomQuiz-container">
+    <div className="RandomQuiz-container mb-3">
       {currentPage === "quiz" && (
         <div>
-          {currentQuestions.map((q, index) => (
+          {currentQuestions.map((q) => (
             <div key={q.id} className="border p-4 rounded-lg mb-4">
-              <h3 className="text-xl font-semibold mb-2">
-                {index + 1}. {q.question}
-              </h3>
+              <h3 className="text-xl font-semibold mb-2">{q.question}</h3>
               <ul>
                 {q.options?.map((option, optionIndex) => (
                   <li
@@ -121,10 +119,10 @@ function RandomQuiz() {
                   {showScore && (
                     <div className="mt-4">
                       <p className="text-3xl font-semibold text-center">
-                        {calculateScore()} / {randomQuestions.length}
+                        {calculateScore()} / {RandomQuestions.length}
                       </p>
                       <p>
-                        {calculateScore() === randomQuestions.length ? (
+                        {calculateScore() === RandomQuestions.length ? (
                           <span className="bg-gradient-to-r from-[#C25D41] via-orange-500 to-[#00C2FF] inline-block text-transparent bg-clip-text">
                             You answered all questions correctly!
                           </span>

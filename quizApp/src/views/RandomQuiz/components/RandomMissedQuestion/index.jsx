@@ -1,9 +1,9 @@
 import React from "react";
-import randomQuestions from "../randomQuestions";
+import RandomQuestions from "../RandomQuestions";
 
 function Index({ selectedAnswers }) {
   // Filter questions based on incorrect answers
-  const incorrectQuestions = randomQuestions.filter(
+  const incorrectQuestions = RandomQuestions.filter(
     (q) => selectedAnswers[q.id - 1] !== q.correctAnswer
   );
 

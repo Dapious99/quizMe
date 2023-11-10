@@ -1,4 +1,4 @@
-const questions = [
+const politicalQuestions = [
   //    new Array(totalPages).fill(new Array(questionsPerPage).fill(null))
   {
     question: "_____ was formely referred to as NyasaLand.",
@@ -164,4 +164,4 @@ const questions = [
   },
 ];
 
-export default questions;
+export default politicalQuestions;

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import questions from "./components/questions";
-import MissedQuestionsPage from "./components/MissedQuestionsPage";
+import politicalQuestions from "./components/politicalQuestions";
+import PoliticMissedQuestionsPage from "./components/PoliticMissedQuestionsPage";
 
 function PoliticalQuiz() {
   const [currentPage, setCurrentPage] = useState("quiz"); // "quiz", "score", or "missed-questions"
   const [page, setPage] = useState(0);
   const questionsPerPage = 8;
-  const totalPages = Math.ceil(questions.length / questionsPerPage);
+  const totalPages = Math.ceil(politicalQuestions.length / questionsPerPage);
   const startIndex = page * questionsPerPage;
   const endIndex = startIndex + questionsPerPage;
-  const currentQuestions = questions.slice(startIndex, endIndex);
+  const currentQuestions = politicalQuestions.slice(startIndex, endIndex);
   const [selectedAnswers, setSelectedAnswers] = useState(
-    new Array(questions.length).fill(null)
+    new Array(politicalQuestions.length).fill(null)
   );
   const [showScore, setShowScore] = useState(false);
   const [iscompleted, setIsCompleted] = useState(false);
@@ -45,7 +45,7 @@ function PoliticalQuiz() {
     selectedAnswers.forEach((selectedOption, index) => {
       if (
         selectedOption !== null &&
-        questions[index].correctAnswer === selectedOption
+        politicalQuestions[index].correctAnswer === selectedOption
       ) {
         correctAnswers++;
       }
@@ -63,7 +63,7 @@ function PoliticalQuiz() {
   };
 
   return (
-    <div className="PoliticalQuiz-container">
+    <div className="PoliticalQuiz-container mb-3">
       {currentPage === "quiz" && (
         <div>
           {currentQuestions.map((q) => (
@@ -147,7 +147,7 @@ function PoliticalQuiz() {
       )}
 
       {currentPage === "missed-questions" && (
-        <MissedQuestionsPage selectedAnswers={selectedAnswers} />
+        <PoliticMissedQuestionsPage selectedAnswers={selectedAnswers} />
       )}
     </div>
   );

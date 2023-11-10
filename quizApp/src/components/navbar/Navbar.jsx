@@ -74,11 +74,19 @@ const Navbar = () => {
                 Politics
               </Link>
 
-              <Link to="/africa-quiz" className="block py-2">
+              <Link
+                to="/africa-quiz"
+                className="block py-2"
+                onClick={clickedItem}
+              >
                 Africa
               </Link>
 
-              <Link to="/random-quiz" className="block py-2">
+              <Link
+                to="/random-quiz"
+                className="block py-2"
+                onClick={clickedItem}
+              >
                 Random
               </Link>
             </ul>

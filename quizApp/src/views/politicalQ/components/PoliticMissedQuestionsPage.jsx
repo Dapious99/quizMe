@@ -1,5 +1,5 @@
 import React from "react";
-import questions from "./questions";
+import politicalQuestions from "./politicalQuestions";
 
 function MissedQuestionsPage({ selectedAnswers }) {
   return (
@@ -8,7 +8,7 @@ function MissedQuestionsPage({ selectedAnswers }) {
         Missed Questions and Correct Answers
       </h1>
       <ul>
-        {questions.map((q, id) => (
+        {politicalQuestions.map((q, id) => (
           <li key={id}>
             Question {id + 1}:
             {selectedAnswers[id] === q.correctAnswer ? (
