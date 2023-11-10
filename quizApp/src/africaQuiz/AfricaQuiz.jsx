@@ -1,38 +1,30 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import AfricaMissedQuestion from "./Components/AfricaMissedQuestion";
-import africaQuestions from "./Components/africaQuestions";
+import questions from "./components/questions";
+import MissedQuestionsPage from "./components/MissedQuestionsPage";
 
-function AfricaQuiz() {
+function PoliticalQuiz() {
   const [currentPage, setCurrentPage] = useState("quiz"); // "quiz", "score", or "missed-questions"
   const [page, setPage] = useState(0);
   const questionsPerPage = 8;
-  const totalPages = Math.ceil(africaQuestions.length / questionsPerPage);
+  const totalPages = Math.ceil(questions.length / questionsPerPage);
   const startIndex = page * questionsPerPage;
   const endIndex = startIndex + questionsPerPage;
-  const currentQuestions = africaQuestions.slice(startIndex, endIndex);
+  const currentQuestions = questions.slice(startIndex, endIndex);
   const [selectedAnswers, setSelectedAnswers] = useState(
-    new Array(africaQuestions.length).fill(null)
+    new Array(questions.length).fill(null)
   );
+  const [isAnsweredCorrectly, setIsAnsweredCorrectly] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const [iscompleted, setIsCompleted] = useState(false);
 
   const handleNextPage = () => {
-    if (
-      !currentQuestions.some(
-        (_, index) => selectedAnswers[startIndex + index] === null
-      )
-    ) {
-      setPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
-      setCurrentPage("quiz");
-    } else {
-      alert("Please answer all questions before proceeding to the next page.");
-    }
+    setPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
+    setIsAnsweredCorrectly(false);
   };
 
   const handlePrevPage = () => {
     setPage((prevPage) => Math.max(prevPage - 1, 0));
+    setIsAnsweredCorrectly(false);
     setCurrentPage("quiz");
   };
 
@@ -40,6 +32,9 @@ function AfricaQuiz() {
     const newSelectedAnswers = [...selectedAnswers];
     newSelectedAnswers[questionIndex] = optionIndex;
     setSelectedAnswers(newSelectedAnswers);
+
+    const isCorrect = questions[questionIndex].correctAnswer === optionIndex;
+    setIsAnsweredCorrectly(isCorrect);
   };
 
   const calculateScore = () => {
@@ -47,7 +42,7 @@ function AfricaQuiz() {
     selectedAnswers.forEach((selectedOption, index) => {
       if (
         selectedOption !== null &&
-        africaQuestions[index].correctAnswer === selectedOption
+        questions[index].correctAnswer === selectedOption
       ) {
         correctAnswers++;
       }
@@ -58,7 +53,6 @@ function AfricaQuiz() {
   const handleSubmit = () => {
     setShowScore(true);
     setIsCompleted(true);
-    toast.success("You are doing great, you just complete the quiz");
   };
 
   const handleViewMissedQuestions = () => {
@@ -66,21 +60,26 @@ function AfricaQuiz() {
   };
 
   return (
-    <div className="AfricaQuiz-container">
+    <div className="PoliticalQuiz-container">
       {currentPage === "quiz" && (
         <div>
           {currentQuestions.map((q) => (
-            <div key={q.id} className="border p-4 rounded-lg mb-4">
-              <h3 className="text-xl font-semibold sm:font-normal md:font-medium mb-2">
-                {q.question}
-              </h3>
+            <div
+              key={q.id}
+              className={`question border p-4 rounded-lg mb-4 ${
+                isAnsweredCorrectly ? "" : ""
+              }`}
+            >
+              <h3 className="text-xl font-semibold mb-2">{q.question}</h3>
               <ul>
                 {q.options?.map((option, optionIndex) => (
                   <li
                     key={optionIndex}
                     className={`cursor-pointer p-2  transition-colors ${
                       selectedAnswers[q.id - 1] === optionIndex
-                        ? "bg-green-500 text-white"
+                        ? questions[q.id - 1].correctAnswer === optionIndex
+                          ? "bg-green-500 text-white"
+                          : "bg-red-500 text-white"
                         : "bg-gray-200"
                     }`}
                     onClick={() => handleOptionClick(q.id - 1, optionIndex)}
@@ -121,11 +120,11 @@ function AfricaQuiz() {
                   {showScore && (
                     <div className="mt-4">
                       <p className="text-3xl font-semibold text-center">
-                        {calculateScore()} / {randomQuestions.length}
+                        {calculateScore()} / {questions.length}
                       </p>
                       <p>
-                        {calculateScore() === randomQuestions.length ? (
-                          <span className="bg-gradient-to-r from-[#C25D41] via-orange-500 to-[#00C2FF] inline-block text-transparent bg-clip-text">
+                        {calculateScore() === questions.length ? (
+                          <span className="">
                             You answered all questions correctly!
                           </span>
                         ) : (
@@ -150,11 +149,10 @@ function AfricaQuiz() {
       )}
 
       {currentPage === "missed-questions" && (
-        <AfricaMissedQuestion selectedAnswers={selectedAnswers} />
+        <MissedQuestionsPage selectedAnswers={selectedAnswers} />
       )}
-      <ToastContainer />
     </div>
   );
 }
 
-export default AfricaQuiz;
+export default PoliticalQuiz;
