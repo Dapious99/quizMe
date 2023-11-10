@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AfricaQuiz from "./africaQuiz/AfricaQuiz";
+import AfricaQuiz from "./views/africaQuiz/AfricaQuiz";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
