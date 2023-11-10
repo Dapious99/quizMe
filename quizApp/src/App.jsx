@@ -5,6 +5,7 @@ import Home from "./views/homepage/Home";
 import Layout from "./components/Layout";
 import PoliticalQuiz from "./views/politicalQ/PoliticalQuiz";
 import RandomQuiz from "./views/RandomQuiz";
+import Contact from "./views/Contact";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/political-quiz" element={<PoliticalQuiz />} />
           <Route path="/random-quiz" element={<RandomQuiz />} />
           <Route path="/" element={<Home />} />
+          <Route path="/contact-us" element={<Contact />} />
         </Route>
         <Route path="*" element={<Fallback />} />
       </Routes>

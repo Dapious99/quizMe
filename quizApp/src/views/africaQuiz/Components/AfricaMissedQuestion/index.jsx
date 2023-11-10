@@ -7,7 +7,7 @@ function Index({ selectedAnswers }) {
   );
 
   return (
-    <div className="missed-questions-container flex flex-col justify-center items-center h-screen">
+    <div className="missed-questions-container flex flex-col justify-center items-center h-screen px-12 md:px-5 sm:px-3">
       <h2 className="text-5xl md:text-3xl sm:text-2xl bg-gradient-to-r from-red-500 via-orange-500 to-green-500 inline-block text-transparent bg-clip-text">
         Missed Questions and Correct Answers
       </h2>

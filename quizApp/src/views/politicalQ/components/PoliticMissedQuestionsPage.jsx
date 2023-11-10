@@ -3,7 +3,7 @@ import politicalQuestions from "./politicalQuestions";
 
 function MissedQuestionsPage({ selectedAnswers }) {
   return (
-    <div className="">
+    <div className="px-12 md:px-5 sm:px-3">
       <h1 className="text-5xl md:text-3xl sm:text-2xl bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 inline-block text-transparent bg-clip-text">
         Missed Questions and Correct Answers
       </h1>

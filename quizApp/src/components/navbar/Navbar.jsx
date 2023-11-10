@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="px-[3rem] bg-gray-400">
+    <nav className="px-[3rem] bg-gray-400 text-white">
       <div
         className="hidden sm:block md:block absolute md:right-[6rem] right-[2rem] top-[rem]"
         onClick={letToggle}

@@ -66,7 +66,7 @@ function RandomQuiz() {
   };
 
   return (
-    <div className="RandomQuiz-container mb-3">
+    <div className="RandomQuiz-container mb-3 px-12 md:px-5 sm:px-3">
       {currentPage === "quiz" && (
         <div>
           {currentQuestions.map((q) => (
