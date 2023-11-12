@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  html {
+    font-family: Georgia, "Open Sans", Montserrat, Lato, Baskerville, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, system-ui;
+  }
+}
