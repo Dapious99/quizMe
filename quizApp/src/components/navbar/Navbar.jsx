@@ -15,10 +15,12 @@ const Navbar = () => {
 
   const toggleQuizDropdown = () => {
     setQuizDropdownOpen(!quizDropdownOpen);
+    setHistoryDropdownOpen(false);
   };
 
   const toggleHistoryDropdown = () => {
     setHistoryDropdownOpen(!historyDropdownOpen);
+    setQuizDropdownOpen(false);
   };
 
   const clickedItem = () => {
