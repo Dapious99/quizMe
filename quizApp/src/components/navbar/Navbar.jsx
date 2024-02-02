@@ -96,17 +96,19 @@ const Navbar = () => {
               History
             </p>
             <ul
-              className={
+              className={`p-2 rounded-md bg-gray-200 shadow-lg ${
                 historyDropdownOpen
-                  ? "ml-2 absolute sm:ml-14 p-2"
-                  : "ml-2 absolute hidden p-2"
+                  ? "ml-2 absolute"
+                  : "relative hidden w-full max-h-min"
               }
+                
+              `}
             >
-              <Link to="" className="block py-2" onClick={clickedItem}>
+              <Link to="" className="block" onClick={clickedItem}>
                 Africa
               </Link>
 
-              <Link to="" className="block py-2" onClick={clickedItem}>
+              <Link to="" className="" onClick={clickedItem}>
                 Nigeria
               </Link>
             </ul>
