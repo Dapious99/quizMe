@@ -12,7 +12,7 @@ const africaQuestions = [
     id: 2,
   },
   {
-    question: "What is the capital of Nigeria before it was moved to Abuja?",
+    question: "Where is the capital of Nigeria before it was moved to Abuja?",
     options: ["Onitsha", "Calabar", "Zaria", "None of the above"],
     correctAnswer: 3, //"None of the above",
     id: 3,

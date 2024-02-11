@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-
+import { IoIosArrowDown } from "react-icons/io";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [quizDropdownOpen, setQuizDropdownOpen] = useState(false);
@@ -29,20 +29,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="px-[3rem] bg-gray-400 text-white">
+    <nav className="px-[3rem] bg-gray-400 text-blue-500">
       <div
-        className="hidden sm:block md:block absolute md:right-[6rem] right-[2rem] top-[rem]"
+        className="hidden sm:block md:block absolute md:right-[6rem] right-[2rem] top-[0.5rem]"
         onClick={letToggle}
       >
         {toggle ? (
-          <FiX size={30} className="text-black" />
+          <FiX size={30} className="text-white" />
         ) : (
-          <FiMenu size={30} className="text-black" />
+          <FiMenu size={30} className="text-white" />
         )}
       </div>
       <div className="flex justify-between items-center">
         <div className={toggle ? "hidden" : "block mr-8"}>
-          <Link to="/" className="italic font-medium text-[1.5rem]">
+          <Link to="/" className="italic font-medium text-[1.5rem] text-white">
             quizMe
           </Link>
         </div>
@@ -50,7 +50,7 @@ const Navbar = () => {
         <ul
           className={
             toggle
-              ? "h-screen w-full pt-[6rem] ease-out px-8 text-black flex flex-col gap-[2rem]"
+              ? "h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col gap-[2rem]"
               : "flex gap-[4rem] py-3 md:hidden sm:hidden"
           }
         >
@@ -58,15 +58,19 @@ const Navbar = () => {
             Home
           </Link>
           <li className="relative group">
-            <p className="" onClick={toggleQuizDropdown}>
-              Quiz
+            <p
+              className="inline-flex gap-2 items-center"
+              onClick={toggleQuizDropdown}
+            >
+              Quiz <IoIosArrowDown />
             </p>
             <ul
-              className={
+              className={`px-8 py-2 bg-gray-200 shadow-lg z-50 ${
                 quizDropdownOpen
-                  ? "ml-2 absolute sm:ml-12 p-2"
-                  : "ml-2 absolute hidden p-2"
+                  ? "ml-2 absolute"
+                  : "relative hidden w-full max-h-min"
               }
+              `}
             >
               <Link
                 to="/political-quiz"
@@ -94,11 +98,14 @@ const Navbar = () => {
             </ul>
           </li>
           <li className="relative group">
-            <p className="" onClick={toggleHistoryDropdown}>
-              History
+            <p
+              className="inline-flex gap-2 items-center"
+              onClick={toggleHistoryDropdown}
+            >
+              History <IoIosArrowDown />
             </p>
             <ul
-              className={`p-2 rounded-md bg-gray-200 shadow-lg ${
+              className={`px-8 py-2 bg-gray-200 shadow-lg ${
                 historyDropdownOpen
                   ? "ml-2 absolute"
                   : "relative hidden w-full max-h-min"
@@ -115,7 +122,7 @@ const Navbar = () => {
               </Link>
             </ul>
           </li>
-          <Link to="/about" className="" onClick={clickedItem}>
+          <Link to="about-us" className="" onClick={clickedItem}>
             About
           </Link>
           <Link to="/contact-us" className="" onClick={clickedItem}>

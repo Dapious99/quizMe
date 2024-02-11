@@ -18,7 +18,7 @@ const index = () => {
         For improvement, contribution and sponsorship. Contact:
       </p>
       <div className="flex gap-12  pt-6">
-        <form onSubmit={handleFormSubmit} className="w-1/2 text-white">
+        <form onSubmit={handleFormSubmit} className="w-1/2 text-blue-600">
           <div className="flex flex-col gap-1">
             <label htmlFor="name">Name</label>
             <input
@@ -64,7 +64,7 @@ const index = () => {
             </button>
           </div>
         </form>
-        <div className="flex flex-col pt-14 gap-5 w-1/2 text-white">
+        <div className="flex flex-col pt-14 gap-5 w-1/2 text-blue-600">
           <a
             href="https://api.whatsapp.com/send?phone=2348110792758&text=Good%20day.%0AHow%20can%20we%20help%20you%20today%3F%0AWe%20are%20here%20for%20anything%20frontend%20related%20and%20websites%20creation.%20Kodewarlock%F0%9F%98%8D%F0%9F%98%8D"
             className="flex gap-3 items-center text-xl"
