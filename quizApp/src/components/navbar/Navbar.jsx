@@ -89,11 +89,11 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to="/random-quiz"
+                to="/general-quiz"
                 className="block py-2"
                 onClick={clickedItem}
               >
-                Random
+                General
               </Link>
             </ul>
           </li>
