@@ -108,7 +108,7 @@ const politicalQuestions = [
   },
   {
     question:
-      "The United States was of independence was an insurrection by compatriots in the 13 colonies to gain independence from ______",
+      "The United States war of independence was an insurrection by compatriots in the 13 colonies to gain independence from ______",
     options: ["France", "Netherlands", "Britain", "Spain"],
     correctAnswer: 2, //"Spain",
     id: 16,
@@ -157,7 +157,7 @@ const politicalQuestions = [
   },
   {
     question:
-      "King Mswati III is the only ruling absolute monarch in africa. He rules of ______ country/kingdom.",
+      "King Mswati III is the only ruling absolute monarch in africa. He rules over ______ country/kingdom.",
     options: ["Eswatini", "Lesotho", "Ethiopia", "Eritrea"],
     correctAnswer: 0, //"Eswatini",
     id: 22,

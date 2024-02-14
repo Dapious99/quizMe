@@ -314,7 +314,7 @@ function Quiz({ questions }) {
                 View Missed Questions
               </button>
             ) : (
-              <Link to="/" className="text-blue-400 mt-2">
+              <Link to="/" className="text-blue-400 mt-2 italic decoration-2">
                 Go back to Homepage
               </Link>
             )}
