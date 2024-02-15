@@ -164,7 +164,7 @@ const africaQuestions = [
   {
     question: "Burkina-Faso is formerly referred to as _____.",
     options: ["Nyasaland", "Gold-Coast", "Upper-Volta", "South-Rhodesia"],
-    correctAnswer: 0, //"Upper-volta"
+    correctAnswer: 2, //"Upper-volta"
     id: 26,
   },
   {

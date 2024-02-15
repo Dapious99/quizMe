@@ -4,12 +4,11 @@ export default {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {
-      backgroundImage: {
-      },
+      backgroundImage: {},
 
       fontFamily: {
         fontFamily: {
-          sans: ["Georgia", ...defaultTheme.fontFamily.sans],
+          sans: ["sans-serif", "Georgia", ...defaultTheme.fontFamily.sans],
         },
       },
 
@@ -22,4 +21,3 @@ export default {
   },
   plugins: [],
 };
-

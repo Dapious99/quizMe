@@ -113,11 +113,15 @@ const Navbar = () => {
                 
               `}
             >
-              <Link to="" className="block" onClick={clickedItem}>
+              <Link
+                to="/africa-history"
+                className="block"
+                onClick={clickedItem}
+              >
                 Africa
               </Link>
 
-              <Link to="" className="" onClick={clickedItem}>
+              <Link to="/nigeria-history" className="" onClick={clickedItem}>
                 Nigeria
               </Link>
             </ul>
