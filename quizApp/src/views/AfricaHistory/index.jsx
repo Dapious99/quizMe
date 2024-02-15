@@ -1,6 +1,6 @@
 import React from "react";
 
-const AfricaHistory = ({ histories }) => {
+const AfricaHistory = () => {
   return <div>AfricaHistory</div>;
 };
 
