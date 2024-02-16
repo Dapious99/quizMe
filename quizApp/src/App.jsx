@@ -11,6 +11,8 @@ import africaQuestions from "./views/Quiz/components/africaQuestions";
 import Quiz from "./views/Quiz";
 import politicalQuestions from "./views/Quiz/components/politicalQuestions";
 import RandomQuestions from "./views/Quiz/components/RandomQuestions";
+import AfricaHistory from "./views/AfricaHistory";
+import NigeriaHistory from "./views/NigeriaHistory";
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +30,8 @@ function App() {
             path="/general-quiz"
             element={<Quiz questions={RandomQuestions} />}
           />
+          <Route path="/africa-history" element={<AfricaHistory />} />
+          <Route path="/nigeria-history" element={<NigeriaHistory />} />
           <Route path="/" element={<Home />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/about-us" element={<About />} />
