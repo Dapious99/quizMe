@@ -26,7 +26,7 @@ const index = () => {
               id="name"
               name="name"
               required
-              className="py-2 rounded px-2"
+              className="py-2 outline-none rounded px-2"
               placeholder="Name"
             />
           </div>
@@ -38,7 +38,7 @@ const index = () => {
               id="email"
               name="email"
               required
-              className="py-2 rounded px-2"
+              className="py-2 outline-none rounded px-2"
               placeholder="Email"
             />
           </div>
@@ -50,7 +50,7 @@ const index = () => {
               id="message"
               name="message"
               required
-              className="py-2 rounded px-2 resize-none"
+              className="py-2 text-black outline-none rounded px-2 resize-none"
               placeholder="Message"
             ></textarea>
           </div>

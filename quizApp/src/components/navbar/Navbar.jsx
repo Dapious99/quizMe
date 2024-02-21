@@ -74,7 +74,7 @@ const Navbar = () => {
             >
               <Link
                 to="/political-quiz"
-                className="block py-2"
+                className="block"
                 onClick={clickedItem}
               >
                 Politics
@@ -88,11 +88,7 @@ const Navbar = () => {
                 Africa
               </Link>
 
-              <Link
-                to="/general-quiz"
-                className="block py-2"
-                onClick={clickedItem}
-              >
+              <Link to="/general-quiz" className="block" onClick={clickedItem}>
                 General
               </Link>
             </ul>
@@ -115,7 +111,7 @@ const Navbar = () => {
             >
               <Link
                 to="/africa-history"
-                className="block"
+                className="block pb-2"
                 onClick={clickedItem}
               >
                 Africa
