@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MissedQuestionsPage from "./components/MissedQuestionsPage";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,29 @@ function Quiz({ questions }) {
   const [showScore, setShowScore] = useState(false);
   const [answeredCount, setAnsweredCount] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
+  const [remainingTime, setRemainingTime] = useState(30 * 60);
 
+  useEffect(() => {
+    // Start the timer when the component mounts
+    const timer = setInterval(() => {
+      if (remainingTime > 0) {
+        setRemainingTime((prevTime) => prevTime - 1);
+      } else {
+        clearInterval(timer);
+        // Handle what happens when the timer reaches zero
+        handleTimeUp();
+      }
+    }, 1000);
+
+    // Clean up the timer when the component unmounts
+    return () => clearInterval(timer);
+  }, [remainingTime]);
+
+  const handleTimeUp = () => {
+    // Handle what happens when the timer reaches zero
+    // alert("Time's up! Submitting the quiz.");
+    handleSubmit();
+  };
   const handleNextPage = () => {
     setPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
     setCurrentPage("quiz");
@@ -72,8 +94,14 @@ function Quiz({ questions }) {
 
   return (
     <div className="Quiz-container mb-3 px-12 md:px-5 sm:px-3">
-      <div className="fixed top-9 right-3 p-4 bg-blue-500 text-white px-2 py-1 rounded-full">
-        {`${answeredCount}/${questions.length} answered`}
+      {/* Display remaining time and question answered*/}
+      <div className="fixed top-9 right-3 p-4 w-40 inline-flex flex-col items-center bg-blue-500 text-white px-2 py-1 rounded-full">
+        {`${Math.floor(remainingTime / 60)
+          .toString()
+          .padStart(2, "0")}:${(remainingTime % 60)
+          .toString()
+          .padStart(2, "0")} remaining`}
+        <div className="mt-2">{`${answeredCount}/${questions.length} answered`}</div>
       </div>
       {currentPage !== "missed-questions" && (
         <div>
