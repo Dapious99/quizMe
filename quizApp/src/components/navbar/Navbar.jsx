@@ -26,6 +26,7 @@ const Navbar = () => {
   const clickedItem = () => {
     setQuizDropdownOpen(false); // Close Quiz dropdown when a parent menu item is clicked
     setHistoryDropdownOpen(false); // Close History dropdown when a parent menu item is clicked
+    setToggle(false);
   };
 
   return (
