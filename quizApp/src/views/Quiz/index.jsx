@@ -16,7 +16,7 @@ function Quiz({ questions }) {
   const [showScore, setShowScore] = useState(false);
   const [answeredCount, setAnsweredCount] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [remainingTime, setRemainingTime] = useState(30 * 60);
+  const [remainingTime, setRemainingTime] = useState(15 * 60);
 
   useEffect(() => {
     // Start the timer when the component mounts
@@ -33,11 +33,17 @@ function Quiz({ questions }) {
     // Clean up the timer when the component unmounts
     return () => clearInterval(timer);
   }, [remainingTime]);
+  useEffect(() => {
+    // Reset the timer whenever the questions change
+    setRemainingTime(15 * 60);
+  }, [questions]);
 
   const handleTimeUp = () => {
     // Handle what happens when the timer reaches zero
-    // alert("Time's up! Submitting the quiz.");
-    handleSubmit();
+    alert("Time's up! Submitting the quiz now!");
+    // handleSubmit();
+    setShowScore(true);
+    setIsCompleted(true);
   };
   const handleNextPage = () => {
     setPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
