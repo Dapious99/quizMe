@@ -15,7 +15,7 @@ const Button = ({
         "py-3 px-24 md:px-24 sm:px-20 text-sm font-normal": size === "md",
         "bg-[#3B82F6] text-white hover:bg-blue-500 transform hover:translate-x-3 duration-700":
           variant === "primary",
-        "bg-transparent text-[#d11d1b] border border-[#3B82F6] hover:bg-[#3B82F6] hover:border-[#d11d1b] transform hover:translate-x-4 duration-700 ":
+        "bg-[#d11d1b] border border-[#3B82F6] hover:bg-[#3B82F6] hover:border-[#d11d1b] text-white transform hover:translate-x-4 duration-700 ":
           variant === "secondary",
       }
     )}
