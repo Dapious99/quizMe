@@ -168,29 +168,29 @@ function Quiz({ questions }) {
               </ul>
             </div>
           ))}
-          <div className="mt-4">
-            <button
+          <div className="mt-4 flex gap-3">
+            <Button
+              title="Previous Page"
               onClick={handlePrevPage}
+              size="sm"
+              variant="primary"
               disabled={page === 0}
-              className="mr-2 px-4 py-2 bg-blue-500 text-white rounded"
-            >
-              Previous Page
-            </button>
+            />
             {page === totalPages - 1 ? (
-              <button
+              <Button
+                title="Submit"
                 onClick={handleSubmit}
-                className="px-4 py-2 bg-blue-500 text-white rounded"
-              >
-                Submit
-              </button>
+                size="sm"
+                variant="primary"
+              />
             ) : (
-              <button
+              <Button
+                title="Next Page"
                 onClick={handleNextPage}
+                size="sm"
+                variant="primary"
                 disabled={page === totalPages - 1}
-                className="px-4 py-2 bg-blue-500 text-white rounded"
-              >
-                Next Page
-              </button>
+              />
             )}
           </div>
         </div>
@@ -216,12 +216,12 @@ function Quiz({ questions }) {
               </div>
             )}
             {showScore && calculateScore() !== questions.length ? (
-              <button
+              <Button
+                title="View Missed Questions"
                 onClick={handleViewMissedQuestions}
-                className="ml-2 px-4 py-2 bg-red-500 text-white rounded"
-              >
-                View Missed Questions
-              </button>
+                size="sm"
+                variant="secondary"
+              />
             ) : (
               <Link to="/" className="text-blue-400 mt-2 italic decoration-2">
                 Go back to Homepage

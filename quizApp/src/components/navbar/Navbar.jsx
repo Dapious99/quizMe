@@ -47,7 +47,6 @@ const Navbar = () => {
             quizMe
           </Link>
         </div>
-
         <ul
           className={
             toggle
@@ -58,7 +57,7 @@ const Navbar = () => {
           <Link to="/" className="" onClick={clickedItem}>
             Home
           </Link>
-          <li className="relative group">
+          <li className="relative group cursor-pointer">
             <p
               className="inline-flex gap-2 items-center"
               onClick={toggleQuizDropdown}
@@ -94,7 +93,7 @@ const Navbar = () => {
               </Link>
             </ul>
           </li>
-          <li className="relative group">
+          <li className="relative group cursor-pointer">
             <p
               className="inline-flex gap-2 items-center"
               onClick={toggleHistoryDropdown}
