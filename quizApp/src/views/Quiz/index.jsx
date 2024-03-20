@@ -118,7 +118,7 @@ function Quiz({ questions }) {
   };
 
   return (
-    <div className="Quiz-container mb-3 px-12 md:px-5 sm:px-3">
+    <div className="pt-16 mb-3 px-12 md:px-5 sm:px-3">
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90">
           <div className="text-white font-fontFamily flex flex-col items-center gap-2">
@@ -138,7 +138,7 @@ function Quiz({ questions }) {
         </div>
       )}
 
-      <div className="fixed top-9 right-3 p-4 w-40 inline-flex flex-col items-center bg-blue-500 text-white px-2 py-1 rounded-full">
+      <div className="fixed top-12 right-3 p-4 w-40 inline-flex flex-col items-center bg-blue-500 text-white px-2 py-1 rounded-full">
         {`${Math.floor(remainingTime / 60)
           .toString()
           .padStart(2, "0")}:${(remainingTime % 60)

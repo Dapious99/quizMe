@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="px-[3rem] bg-gray-400 text-blue-500">
+    <nav className="px-[3rem] bg-gray-400 text-blue-500 fixed top-0 left-0 right-0 z-50">
       <div
         className="hidden sm:block md:block absolute right-[2rem] top-[0.5rem]"
         onClick={letToggle}
@@ -51,7 +51,7 @@ const Navbar = () => {
         <ul
           className={
             toggle
-              ? "h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col gap-[2rem] absolute top-0 left-0 right-0 bg-gray-400"
+              ? "h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col gap-[2rem] bg-gray-400"
               : "flex items-center gap-[4rem] py-3 md:hidden sm:hidden"
           }
         >
