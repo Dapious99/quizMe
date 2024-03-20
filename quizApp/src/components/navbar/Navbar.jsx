@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
+
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [quizDropdownOpen, setQuizDropdownOpen] = useState(false);
@@ -9,8 +10,8 @@ const Navbar = () => {
 
   const letToggle = () => {
     setToggle(!toggle);
-    setQuizDropdownOpen(false); // Close Quiz dropdown when main dropdown is toggled
-    setHistoryDropdownOpen(false); // Close History dropdown when main dropdown is toggled
+    setQuizDropdownOpen(false);
+    setHistoryDropdownOpen(false);
   };
 
   const toggleQuizDropdown = () => {
@@ -24,15 +25,15 @@ const Navbar = () => {
   };
 
   const clickedItem = () => {
-    setQuizDropdownOpen(false); // Close Quiz dropdown when a parent menu item is clicked
-    setHistoryDropdownOpen(false); // Close History dropdown when a parent menu item is clicked
+    setQuizDropdownOpen(false);
+    setHistoryDropdownOpen(false);
     setToggle(false);
   };
 
   return (
     <nav className="px-[3rem] bg-gray-400 text-blue-500">
       <div
-        className="hidden sm:block md:block absolute md:right-[6rem] right-[2rem] top-[0.5rem]"
+        className="hidden sm:block md:block absolute right-[2rem] top-[0.5rem]"
         onClick={letToggle}
       >
         {toggle ? (
@@ -50,8 +51,8 @@ const Navbar = () => {
         <ul
           className={
             toggle
-              ? "h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col gap-[2rem]"
-              : "flex gap-[4rem] py-3 md:hidden sm:hidden"
+              ? "h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col gap-[2rem] absolute top-0 left-0 right-0 bg-gray-400"
+              : "flex items-center gap-[4rem] py-3 md:hidden sm:hidden"
           }
         >
           <Link to="/" className="" onClick={clickedItem}>
@@ -68,13 +69,13 @@ const Navbar = () => {
               className={`px-8 py-2 bg-gray-200 shadow-lg z-50 ${
                 quizDropdownOpen
                   ? "ml-2 absolute"
-                  : "relative hidden w-full max-h-min"
+                  : "relative hidden w-full max-h-min text-xl"
               }
               `}
             >
               <Link
                 to="/political-quiz"
-                className="block"
+                className="block text-lg"
                 onClick={clickedItem}
               >
                 Politics
@@ -82,13 +83,17 @@ const Navbar = () => {
 
               <Link
                 to="/africa-quiz"
-                className="block py-2"
+                className="block py-2 text-lg"
                 onClick={clickedItem}
               >
                 Africa
               </Link>
 
-              <Link to="/general-quiz" className="block" onClick={clickedItem}>
+              <Link
+                to="/general-quiz"
+                className="block text-lg"
+                onClick={clickedItem}
+              >
                 General
               </Link>
             </ul>
@@ -111,13 +116,17 @@ const Navbar = () => {
             >
               <Link
                 to="/africa-history"
-                className="block pb-2"
+                className="block pb-2 text-lg"
                 onClick={clickedItem}
               >
                 Africa
               </Link>
 
-              <Link to="/nigeria-history" className="" onClick={clickedItem}>
+              <Link
+                to="/nigeria-history"
+                className="text-lg"
+                onClick={clickedItem}
+              >
                 Nigeria
               </Link>
             </ul>
