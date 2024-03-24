@@ -31,7 +31,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="px-[3rem] bg-gray-400 text-blue-500 fixed top-0 left-0 right-0 z-50">
+    <nav
+      className={`px-[3rem] bg-gray-400 text-blue-500 fixed top-0 left-0 right-0 z-50`}
+    >
       <div
         className="hidden sm:block md:block absolute right-[2rem] top-[0.5rem]"
         onClick={letToggle}
@@ -51,8 +53,8 @@ const Navbar = () => {
         <ul
           className={
             toggle
-              ? "h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col gap-[2rem] bg-gray-400"
-              : "flex items-center gap-[4rem] py-3 md:hidden sm:hidden"
+              ? "font-semibold text-3xl h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col justify-center gap-[2rem] bg-gray-400"
+              : "flex items-center text-xl gap-[4rem] py-3 md:hidden sm:hidden"
           }
         >
           <Link to="/" className="" onClick={clickedItem}>
@@ -66,7 +68,7 @@ const Navbar = () => {
               Quiz <IoIosArrowDown />
             </p>
             <ul
-              className={`px-8 py-2 bg-gray-200 shadow-lg z-50 ${
+              className={`px-8 py-2 bg-gray-700 shadow-lg z-50 ${
                 quizDropdownOpen
                   ? "ml-2 absolute"
                   : "relative hidden w-full max-h-min text-xl"
@@ -75,7 +77,7 @@ const Navbar = () => {
             >
               <Link
                 to="/political-quiz"
-                className="block text-lg"
+                className="block text-lg border-b-2"
                 onClick={clickedItem}
               >
                 Politics
@@ -83,7 +85,7 @@ const Navbar = () => {
 
               <Link
                 to="/africa-quiz"
-                className="block py-2 text-lg"
+                className="block py-2 text-lg border-b-2"
                 onClick={clickedItem}
               >
                 Africa
@@ -106,7 +108,7 @@ const Navbar = () => {
               History <IoIosArrowDown />
             </p>
             <ul
-              className={`px-8 py-2 bg-gray-200 shadow-lg ${
+              className={`px-8 py-2 bg-gray-700 shadow-lg ${
                 historyDropdownOpen
                   ? "ml-2 absolute"
                   : "relative hidden w-full max-h-min"
@@ -116,7 +118,7 @@ const Navbar = () => {
             >
               <Link
                 to="/africa-history"
-                className="block pb-2 text-lg"
+                className="block pb-2 text-lg border-b-2"
                 onClick={clickedItem}
               >
                 Africa
