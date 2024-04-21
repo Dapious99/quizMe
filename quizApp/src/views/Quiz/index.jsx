@@ -14,7 +14,7 @@ function Quiz({ questions }) {
   const endIndex = startIndex + questionsPerPage;
   const currentQuestions = questions.slice(startIndex, endIndex);
   const [selectedAnswers, setSelectedAnswers] = useState(
-    new Array(questions.length).fill(null)
+    Array(questions.length).fill(null)
   );
   const [showScore, setShowScore] = useState(false);
   const [answeredCount, setAnsweredCount] = useState(0);
