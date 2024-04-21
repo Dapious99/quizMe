@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MissedQuestionsPage from "./components/MissedQuestionsPage";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
+import { ToastContainer, toast } from "react-toastify";
 
 function Quiz({ questions }) {
   const [showModal, setShowModal] = useState(true);
@@ -18,7 +19,7 @@ function Quiz({ questions }) {
   const [showScore, setShowScore] = useState(false);
   const [answeredCount, setAnsweredCount] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [remainingTime, setRemainingTime] = useState(1 * 60);
+  const [remainingTime, setRemainingTime] = useState(30 * 60);
   const [timerId, setTimerId] = useState(null);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ function Quiz({ questions }) {
   useEffect(() => {
     // Reset the timer whenever the questions change
     setShowModal(true);
-    setRemainingTime(1 * 60);
+    setRemainingTime(30 * 60);
   }, [questions]);
 
   useEffect(() => {
@@ -41,23 +42,25 @@ function Quiz({ questions }) {
             return prevTime - 1;
           } else {
             clearInterval(newTimerId);
-            handleTimeUp();
           }
         });
       }, 1000);
       setTimerId(newTimerId);
+    } else if (!showModal && remainingTime === 0) {
+      handleTimeUp(); // Handle time up if initial time is 0
     }
     return () => {
       clearInterval(newTimerId);
     };
-  }, [showModal, remainingTime]);
+  }, [showModal, remainingTime, showScore]); // Include showScore dependency
 
   const handleTimeUp = () => {
-    // Handle what happens when the timer reaches zero
-    alert("Time's up! Submitting the quiz now!");
-    // handleSubmit();
-    setShowScore(true);
-    setIsCompleted(true);
+    if (!showScore) {
+      // Check if score hasn't been shown yet to avoid multiple submissions
+      toast.info("Time's up! Submitting the quiz now!");
+      setShowScore(true);
+      setIsCompleted(true);
+    }
   };
 
   const handleStartQuiz = () => {
@@ -138,7 +141,7 @@ function Quiz({ questions }) {
         </div>
       )}
 
-      <div className="fixed top-12 right-3 p-4 w-40 inline-flex flex-col items-center bg-blue-500 text-white px-2 py-1 rounded-full">
+      <div className="fixed top-12 md:top-8 sm:top-6 md:right-2 sm:right-1 z-30 right-3 p-4 w-40 inline-flex flex-col items-center bg-blue-500 text-white px-2 py-1 rounded-full">
         {`${Math.floor(remainingTime / 60)
           .toString()
           .padStart(2, "0")}:${(remainingTime % 60)
@@ -168,31 +171,35 @@ function Quiz({ questions }) {
               </ul>
             </div>
           ))}
-          <div className="mt-4 flex gap-3">
-            <Button
-              title="Previous Page"
-              onClick={handlePrevPage}
-              size="sm"
-              variant="primary"
-              disabled={page === 0}
-            />
-            {page === totalPages - 1 ? (
+          {!showModal ? (
+            <div className="mt-4 flex gap-3">
               <Button
-                title="Submit"
-                onClick={handleSubmit}
+                title="Previous Page"
+                onClick={handlePrevPage}
                 size="sm"
                 variant="primary"
+                disabled={page === 0}
               />
-            ) : (
-              <Button
-                title="Next Page"
-                onClick={handleNextPage}
-                size="sm"
-                variant="primary"
-                disabled={page === totalPages - 1}
-              />
-            )}
-          </div>
+              {page === totalPages - 1 ? (
+                <Button
+                  title="Submit"
+                  onClick={handleSubmit}
+                  size="sm"
+                  variant="primary"
+                />
+              ) : (
+                <Button
+                  title="Next Page"
+                  onClick={handleNextPage}
+                  size="sm"
+                  variant="primary"
+                  disabled={page === totalPages - 1}
+                />
+              )}
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       )}
 
@@ -234,6 +241,7 @@ function Quiz({ questions }) {
       {currentPage === "missed-questions" && (
         <MissedQuestionsPage missedQuestions={getMissedQuestions()} />
       )}
+      <ToastContainer />
     </div>
   );
 }
