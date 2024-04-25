@@ -13,6 +13,7 @@ import politicalQuestions from "./views/Quiz/components/politicalQuestions";
 import RandomQuestions from "./views/Quiz/components/RandomQuestions";
 import AfricaHistory from "./views/AfricaHistory";
 import NigeriaHistory from "./views/NigeriaHistory";
+import KoboskyBlog from "./views/KobosProj/KoboskyBlog";
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +34,7 @@ function App() {
           <Route path="/africa-history" element={<AfricaHistory />} />
           <Route path="/nigeria-history" element={<NigeriaHistory />} />
           <Route path="/" element={<Home />} />
+          <Route path="/kobs-blog" element={<KoboskyBlog />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/about-us" element={<About />} />
         </Route>
