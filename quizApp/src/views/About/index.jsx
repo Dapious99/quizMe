@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="pt-16 bg-gray-200 h-screen px-16 md:px-5 sm:px-3">
+    <div className="pt-16 bg-gray-200 min-h-screen px-16 md:px-5 sm:px-3">
       <div className="font-sans flex flex-col gap-4 text-lg py-3">
         <p>
           Welcome to{" "}

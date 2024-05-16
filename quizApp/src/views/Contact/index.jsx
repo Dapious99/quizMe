@@ -55,7 +55,7 @@ const index = () => {
             ></textarea>
           </div>
 
-          <div className="flex justify-end">
+          <div className="flex justify-end  sm:justify-center md:justify-center">
             <button
               type="submit"
               className="bg-blue-600 rounded-md text-white px-4 py-2 mt-6"
