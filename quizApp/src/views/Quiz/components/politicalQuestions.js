@@ -76,7 +76,7 @@ const politicalQuestions = [
   {
     question: "Leopold Senghor was the first president of _______",
     options: ["Burkina-Faso", "Congo", "Mali", "Senegal"],
-    correctAnswer: 4, //"Senegal",
+    correctAnswer: 3, //"Senegal",
     id: 11,
   },
   {
@@ -110,7 +110,7 @@ const politicalQuestions = [
     question:
       "The United States war of independence was an insurrection by compatriots in the 13 colonies to gain independence from ______",
     options: ["France", "Netherlands", "Britain", "Spain"],
-    correctAnswer: 2, //"Spain",
+    correctAnswer: 2, //"Britain",
     id: 16,
   },
   {
