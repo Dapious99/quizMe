@@ -68,7 +68,7 @@ const Navbar = () => {
               Quiz <IoIosArrowDown />
             </p>
             <ul
-              className={`px-8 py-2 bg-gray-700 shadow-lg z-50 ${
+              className={`px-8 py-2 bg-blue-900 shadow-lg z-50 ${
                 quizDropdownOpen
                   ? "ml-2 absolute"
                   : "relative hidden w-full max-h-min text-xl"
@@ -77,7 +77,7 @@ const Navbar = () => {
             >
               <Link
                 to="/political-quiz"
-                className="block text-lg border-b-2"
+                className="block text-lg border-b pb-2"
                 onClick={clickedItem}
               >
                 Politics
@@ -85,7 +85,7 @@ const Navbar = () => {
 
               <Link
                 to="/africa-quiz"
-                className="block py-2 text-lg border-b-2"
+                className="block py-2 text-lg border-b"
                 onClick={clickedItem}
               >
                 Africa
@@ -93,7 +93,7 @@ const Navbar = () => {
 
               <Link
                 to="/general-quiz"
-                className="block text-lg"
+                className="block text-lg pt-2"
                 onClick={clickedItem}
               >
                 General
@@ -108,7 +108,7 @@ const Navbar = () => {
               History <IoIosArrowDown />
             </p>
             <ul
-              className={`px-8 py-2 bg-gray-700 shadow-lg ${
+              className={`px-8 py-2 bg-blue-900 shadow-lg ${
                 historyDropdownOpen
                   ? "ml-2 absolute"
                   : "relative hidden w-full max-h-min"
@@ -118,7 +118,7 @@ const Navbar = () => {
             >
               <Link
                 to="/africa-history"
-                className="block pb-2 text-lg border-b-2"
+                className="block pb-2 text-lg border-b"
                 onClick={clickedItem}
               >
                 Africa
@@ -126,7 +126,7 @@ const Navbar = () => {
 
               <Link
                 to="/nigeria-history"
-                className="text-lg"
+                className="text-lg pt-2"
                 onClick={clickedItem}
               >
                 Nigeria
