@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-[3rem] bg-gray-400 text-blue-500 fixed top-0 left-0 right-0 z-50`}
+      className={`px-[3rem] bg-blue-900 text-white fixed top-0 left-0 right-0 z-50`}
     >
       <div
         className="hidden sm:block md:block absolute right-[2rem] top-[0.5rem]"
