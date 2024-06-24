@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -29,10 +30,13 @@ const Navbar = () => {
     setHistoryDropdownOpen(false);
     setToggle(false);
   };
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
     <nav
-      className={`px-[3rem] bg-blue-900 text-white fixed top-0 left-0 right-0 z-50`}
+      className={`px-[3rem] bg-blue-900 text-white fixed top-0 left-0 right-0 z-50 ${
+        isDarkMode ? "dark" : ""
+      }`}
     >
       <div
         className="hidden sm:block md:block absolute right-[2rem] top-[0.5rem]"
@@ -57,6 +61,16 @@ const Navbar = () => {
               : "flex items-center text-xl gap-[4rem] py-3 md:hidden sm:hidden"
           }
         >
+          <button
+            className="bg-gray-500 px-4 py-2 rounded"
+            onClick={() => setIsDarkMode(!isDarkMode)}
+          >
+            {isDarkMode ? (
+              <FaSun className="text-white" />
+            ) : (
+              <FaMoon className="text-black" />
+            )}
+          </button>
           <Link to="/" className="" onClick={clickedItem}>
             Home
           </Link>

@@ -2,6 +2,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: ["./src/**/*.{html,js,jsx}"],
+  darkMode: "class", // false or media
   theme: {
     extend: {
       backgroundImage: {},
