@@ -39,7 +39,7 @@ const Navbar = () => {
       }`}
     >
       <div
-        className="hidden sm:block md:block absolute right-[2rem] top-[0.5rem]"
+        className="hidden sm:block md:block absolute right-[2rem] top-[0.3rem]"
         onClick={letToggle}
       >
         {toggle ? (
@@ -54,15 +54,9 @@ const Navbar = () => {
             quizMe
           </Link>
         </div>
-        <ul
-          className={
-            toggle
-              ? "font-semibold text-3xl h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col justify-center gap-[2rem] bg-gray-400"
-              : "flex items-center text-xl gap-[4rem] py-3 md:hidden sm:hidden"
-          }
-        >
+        <div className="flex items-center gap-3">
           <button
-            className="bg-gray-500 px-4 py-2 rounded"
+            className="bg-gray-500 px-4 py-2 rounded sm:absolute sm:right-16 md:absolute md:right-20"
             onClick={() => setIsDarkMode(!isDarkMode)}
           >
             {isDarkMode ? (
@@ -71,89 +65,97 @@ const Navbar = () => {
               <FaMoon className="text-black" />
             )}
           </button>
-          <Link to="/" className="" onClick={clickedItem}>
-            Home
-          </Link>
-          <li className="relative group cursor-pointer">
-            <p
-              className="inline-flex gap-2 items-center"
-              onClick={toggleQuizDropdown}
-            >
-              Quiz <IoIosArrowDown />
-            </p>
-            <ul
-              className={`px-8 py-2 bg-blue-900 shadow-lg z-50 ${
-                quizDropdownOpen
-                  ? "ml-2 absolute"
-                  : "relative hidden w-full max-h-min text-xl"
-              }
+          <ul
+            className={
+              toggle
+                ? "font-semibold text-3xl h-screen w-full pt-[6rem] ease-out px-8 text-white flex flex-col justify-center gap-[2rem] bg-gray-400"
+                : "flex items-center text-xl gap-[4rem] py-3 md:hidden sm:hidden"
+            }
+          >
+            <Link to="/" className="" onClick={clickedItem}>
+              Home
+            </Link>
+            <li className="relative group cursor-pointer">
+              <p
+                className="inline-flex gap-2 items-center"
+                onClick={toggleQuizDropdown}
+              >
+                Quiz <IoIosArrowDown />
+              </p>
+              <ul
+                className={`px-8 py-2 bg-blue-900 shadow-lg z-50 ${
+                  quizDropdownOpen
+                    ? "ml-2 absolute"
+                    : "relative hidden w-full max-h-min text-xl"
+                }
               `}
-            >
-              <Link
-                to="/political-quiz"
-                className="block text-lg border-b pb-2"
-                onClick={clickedItem}
               >
-                Politics
-              </Link>
+                <Link
+                  to="/political-quiz"
+                  className="block text-lg border-b pb-2"
+                  onClick={clickedItem}
+                >
+                  Politics
+                </Link>
 
-              <Link
-                to="/africa-quiz"
-                className="block py-2 text-lg border-b"
-                onClick={clickedItem}
-              >
-                Africa
-              </Link>
+                <Link
+                  to="/africa-quiz"
+                  className="block py-2 text-lg border-b"
+                  onClick={clickedItem}
+                >
+                  Africa
+                </Link>
 
-              <Link
-                to="/general-quiz"
-                className="block text-lg pt-2"
-                onClick={clickedItem}
+                <Link
+                  to="/general-quiz"
+                  className="block text-lg pt-2"
+                  onClick={clickedItem}
+                >
+                  General
+                </Link>
+              </ul>
+            </li>
+            <li className="relative group cursor-pointer">
+              <p
+                className="inline-flex gap-2 items-center"
+                onClick={toggleHistoryDropdown}
               >
-                General
-              </Link>
-            </ul>
-          </li>
-          <li className="relative group cursor-pointer">
-            <p
-              className="inline-flex gap-2 items-center"
-              onClick={toggleHistoryDropdown}
-            >
-              History <IoIosArrowDown />
-            </p>
-            <ul
-              className={`px-8 py-2 bg-blue-900 shadow-lg ${
-                historyDropdownOpen
-                  ? "ml-2 absolute"
-                  : "relative hidden w-full max-h-min"
-              }
+                History <IoIosArrowDown />
+              </p>
+              <ul
+                className={`px-8 py-2 bg-blue-900 shadow-lg ${
+                  historyDropdownOpen
+                    ? "ml-2 absolute"
+                    : "relative hidden w-full max-h-min"
+                }
                 
               `}
-            >
-              <Link
-                to="/africa-history"
-                className="block pb-2 text-lg border-b"
-                onClick={clickedItem}
               >
-                Africa
-              </Link>
+                <Link
+                  to="/africa-history"
+                  className="block pb-2 text-lg border-b"
+                  onClick={clickedItem}
+                >
+                  Africa
+                </Link>
 
-              <Link
-                to="/nigeria-history"
-                className="text-lg pt-2"
-                onClick={clickedItem}
-              >
-                Nigeria
-              </Link>
-            </ul>
-          </li>
-          <Link to="about-us" className="" onClick={clickedItem}>
-            About
-          </Link>
-          <Link to="/contact-us" className="" onClick={clickedItem}>
-            Contact
-          </Link>
-        </ul>
+                <Link
+                  to="/nigeria-history"
+                  className="text-lg pt-2"
+                  onClick={clickedItem}
+                >
+                  Nigeria
+                </Link>
+              </ul>
+            </li>
+            <Link to="about-us" className="" onClick={clickedItem}>
+              About
+            </Link>
+            <Link to="/contact-us" className="" onClick={clickedItem}>
+              Contact
+            </Link>
+          </ul>
+        </div>
       </div>
     </nav>
   );
