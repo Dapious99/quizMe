@@ -45,7 +45,7 @@ const AboutUs = () => {
         </p>
         <p>Happy learning!</p>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center md:py-5 sm:py-4">
         <div className="shadow-lg rounded-md bg-white text-center text-blue-600 p-3">
           <div>
             <img />
